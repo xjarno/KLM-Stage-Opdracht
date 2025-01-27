@@ -6,7 +6,8 @@ public class TakeOffState : AbstractState
     private UIController UIController;
     private Rigidbody rb;
     private bool airborne;
-    private float speed;
+    private float speed = 1f;
+    private float pitchChange = 0.01f;
 
     public override void Enter()
     {
@@ -26,7 +27,12 @@ public class TakeOffState : AbstractState
     public override void FixedUpdateState()
     {
         base.FixedUpdateState();
-        rb.AddForce(new Vector3(0, 0, 1));
+        rb.AddForce(transform.up * speed);
+        rb.AddTorque(transform.right * pitchChange/ 50);
+        if(transform.position.y >= 5f && transform.rotation.x >= -90)
+        {
+            pitchChange = -0.01f;
+        } 
 
         if (transform.position.y > 0)
         { 
