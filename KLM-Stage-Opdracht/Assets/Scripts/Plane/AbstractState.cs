@@ -30,4 +30,10 @@ public abstract class AbstractState : MonoBehaviour
         correspondingStateMachine.ChangeState(goToState);
     }
 
+    public Vector3 Truncate(Vector3 value, float max)
+    {
+        var result = Vector3.Normalize(value) * max;
+        return result;
+    }
+
 }
