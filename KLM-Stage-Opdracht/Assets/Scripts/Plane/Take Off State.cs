@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class TakeOffState : AbstractState
 {
@@ -8,11 +9,14 @@ public class TakeOffState : AbstractState
     private Rigidbody rb;
     private bool airborne;
     private float distance;
+    [SerializeField] private float radius = 2f;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float maxSpeed = 5f;
+    [SerializeField] private float maxForce = 1f;
     private Vector3 desiredVelocity;
     private Vector3 steering;
     private Vector3 targetDirection;
+    
 
 
 
@@ -35,13 +39,19 @@ public class TakeOffState : AbstractState
     public override void FixedUpdateState()
     {
         base.FixedUpdateState();
+        transform.LookAt(transform.position + rb.velocity);
 
+        // creates velocity to the target
         desiredVelocity = Vector3.Normalize(target.transform.position - transform.position)* maxSpeed;
-        steering = desiredVelocity -rb.velocity;
+        steering = desiredVelocity - rb.velocity;
+        if (steering.magnitude > maxForce) 
+        {
+            steering = Truncate(steering, maxForce);
+        }
         steering /= rb.mass;
         rb.velocity = Truncate(rb.velocity+steering, maxSpeed);
         distance = Vector3.Distance(target.transform.position, transform.position);
-        if(distance <= 2f)
+        if(distance <= radius)
         {
             airborne = true;
         }
