@@ -4,7 +4,7 @@ using TMPro;
 public class UIController : MonoBehaviour
 {
     // variables
-    private string command;
+    public string command;
 
     //Functions
     public void TakeOffButton()
