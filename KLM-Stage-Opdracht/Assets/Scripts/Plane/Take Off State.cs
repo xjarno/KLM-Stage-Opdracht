@@ -2,16 +2,13 @@ using UnityEngine;
 
 public class TakeOffState : AbstractState
 {
-    public GameObject Ui;
     public GameObject target;
-    private UIController UIController;
     private bool airborne;
     private Vector3 targetDirection;
-
     public override void Enter()
     {
-        UIController = Ui.GetComponent<UIController>();
         GetVariables();
+        radius = 5;
     }
 
     public override void UpdateState()

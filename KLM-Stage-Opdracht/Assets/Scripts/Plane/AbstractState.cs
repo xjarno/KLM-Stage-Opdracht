@@ -4,14 +4,14 @@ public abstract class AbstractState : MonoBehaviour
 {
     protected StateMachine correspondingStateMachine;
    
-    public Rigidbody rb;
-    public float radius;
-    public float speed = 1f;
-    public float maxSpeed = 5f;
-    public float maxForce = 1f;
-    public float distance;
-    public Vector3 desiredVelocity;
-    public Vector3 steering;
+    protected Rigidbody rb;
+    protected float radius;
+    protected float speed = 1f;
+    protected float maxSpeed = 5f;
+    protected float maxForce = 1f;
+    protected float distance;
+    protected Vector3 desiredVelocity;
+    protected Vector3 steering;
 
     [Tooltip("The states this state can transition to")]
     [SerializeField] protected AbstractState[] exitStates;
