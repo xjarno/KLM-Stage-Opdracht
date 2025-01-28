@@ -1,16 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ParkState : AbstractState
 {
     public GameObject Ui;
     private UIController UIController;
-    private Rigidbody rb;
     public override void Enter()
     {
-        rb = GetComponent<Rigidbody>();
         UIController = Ui.GetComponent<UIController>();
+        GetVariables();
     }
     public override void UpdateState()
     {

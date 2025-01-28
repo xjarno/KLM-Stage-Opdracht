@@ -14,6 +14,7 @@ public class StateMachine : MonoBehaviour
         }
         currentState = states[0];
         currentState.Enter();
+        currentState.GetVariables();
     }
     private void Update()
     {
