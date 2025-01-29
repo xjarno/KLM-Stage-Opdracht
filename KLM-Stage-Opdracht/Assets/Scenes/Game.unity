@@ -1300,7 +1300,7 @@ Transform:
   m_GameObject: {fileID: 175282780}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 4, y: 8, z: 70}
+  m_LocalPosition: {x: 9, y: 8, z: 70}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7760,7 +7760,7 @@ Transform:
   m_GameObject: {fileID: 1161514952}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -4, y: 8, z: 70}
+  m_LocalPosition: {x: 1, y: 8, z: 70}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8556,7 +8556,7 @@ Transform:
   m_GameObject: {fileID: 1324897217}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 2, y: 8, z: 70}
+  m_LocalPosition: {x: 7, y: 8, z: 70}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8732,6 +8732,7 @@ MonoBehaviour:
   exitStates:
   - {fileID: 1374657481}
   Ui: {fileID: 1553889329}
+  lookAtTarget: {fileID: 1940357276}
 --- !u!114 &1374657480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8833,7 +8834,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exitStates:
   - {fileID: 1374657479}
-  landingTarget: {fileID: 1940357276}
+  landingTargets:
+  - {fileID: 1940357276}
+  - {fileID: 11801343}
 --- !u!1001 &1387614774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9700,7 +9703,7 @@ Transform:
   m_GameObject: {fileID: 1522453770}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 8, z: 70}
+  m_LocalPosition: {x: 5, y: 8, z: 70}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9731,7 +9734,7 @@ Transform:
   m_GameObject: {fileID: 1527090830}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -2, y: 8, z: 70}
+  m_LocalPosition: {x: 3, y: 8, z: 70}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

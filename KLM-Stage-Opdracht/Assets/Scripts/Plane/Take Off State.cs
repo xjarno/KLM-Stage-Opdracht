@@ -7,6 +7,7 @@ public class TakeOffState : AbstractState
     private Vector3 targetDirection;
     public override void Enter()
     {
+        airborne = false;
         GetVariables();
         radius = 5;
     }

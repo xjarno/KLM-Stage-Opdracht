@@ -8,7 +8,7 @@ public abstract class AbstractState : MonoBehaviour
     protected float radius;
     protected float speed = 1f;
     protected float maxSpeed = 5f;
-    protected float maxForce = 1f;
+    protected float maxForce = 0.7f;
     protected float distance;
     protected Vector3 desiredVelocity;
     protected Vector3 steering;
