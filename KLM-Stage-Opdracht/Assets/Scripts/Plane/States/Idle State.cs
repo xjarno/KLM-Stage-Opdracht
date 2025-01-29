@@ -4,10 +4,12 @@ public class IdleState : AbstractState
 {
     public GameObject UI;
     private UIController UIController;
-    private float maxCoordinate = 50;
-    private float minCoordinate = -50;
-    private float minYLevel = 5;
-    private float maxYLevel = 10;
+    private float maxCoordinatex = 50;
+    private float minCoordinatex = -50;
+    private float maxCoordinatez = 100;
+    private float minCoordinatez = 0;
+    private float minYLevel = 6;
+    private float maxYLevel = 15;
     private Vector3 desiredTarget;
 
 
@@ -34,7 +36,7 @@ public class IdleState : AbstractState
 
         if(desiredTarget == null || distance <= radius || desiredTarget == Vector3.zero)
         {
-            desiredTarget = new Vector3(Random.Range(minCoordinate, maxCoordinate),Random.Range(minYLevel ,maxYLevel), Random.Range(minCoordinate, maxCoordinate));
+            desiredTarget = new Vector3(Random.Range(minCoordinatex, maxCoordinatex),Random.Range(minYLevel ,maxYLevel), Random.Range(minCoordinatez, maxCoordinatez));
         }
 
         Seek(desiredTarget,transform.position);

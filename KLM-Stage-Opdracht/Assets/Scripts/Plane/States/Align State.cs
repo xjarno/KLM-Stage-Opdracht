@@ -10,7 +10,7 @@ public class AlignState : AbstractState
     {
         i = 0;
         GetVariables();
-        radius = 3;
+        radius = 5;
         seekTarget = targets[0].transform.position;
     }
 

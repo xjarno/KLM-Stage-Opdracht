@@ -11,7 +11,9 @@ public abstract class AbstractState : MonoBehaviour
     protected float maxSpeed = 5f;
     protected float maxForce = 0.7f;
     protected float distance;
-    protected float searchRadius = 10f;
+    protected float searchRadius = 4f;
+    protected float dotProductVar = 0.4f;
+    private float lowYLevel = 4f;
     protected Vector3 desiredVelocity;
     protected Vector3 steering;
     protected Vector3 difference;
@@ -69,7 +71,7 @@ public abstract class AbstractState : MonoBehaviour
             if(obj != this && Vector3.Distance(obj.transform.position, plane) < searchRadius)
             {
                 float dotProduct = Vector3.Dot(plane, obj.transform.position);
-                if(dotProduct > 0.4f)
+                if(dotProduct > dotProductVar)
                 {
                     nearbyObjects.Add(obj.transform.position);
                 }
@@ -90,8 +92,20 @@ public abstract class AbstractState : MonoBehaviour
                     steering = Truncate(steering, maxForce);
                 }
                 steering /= rb.mass;
+                rb.velocity = Truncate(rb.velocity + steering, maxSpeed);
             }
             nearbyObjects.Clear();
+        }
+        if(plane.y < lowYLevel)
+        {
+            desiredVelocity = Vector3.Normalize(new Vector3(plane.x,plane.y + lowYLevel, plane.z) - plane)* maxSpeed;
+            steering = desiredVelocity -rb.velocity;
+            if (steering.magnitude > maxForce) 
+            {
+                steering = Truncate(steering, maxForce);
+            }
+            steering /= rb.mass;
+            rb.velocity = Truncate(rb.velocity + steering, maxForce);
         }
     }
 
