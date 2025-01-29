@@ -10793,6 +10793,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   command: 
+  planes:
+  - {fileID: 1374657477}
+  - {fileID: 548678319}
+  - {fileID: 755566560}
+  - {fileID: 1007576495}
+  - {fileID: 2050990298}
 --- !u!1001 &1578909412
 PrefabInstance:
   m_ObjectHideFlags: 0
