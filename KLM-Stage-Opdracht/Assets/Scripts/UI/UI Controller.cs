@@ -1,13 +1,15 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
 
 public class UIController : MonoBehaviour
 {
     // variables
     public string command;
     public GameObject[] planes;
-    private int k;
-    private int l;
+    private List<GameObject> parked = new List<GameObject>();
+    private List<GameObject> airborne = new List<GameObject>();
+   
 
     //Functions
     public void TakeOffButton()
@@ -16,13 +18,17 @@ public class UIController : MonoBehaviour
         {
             if(planes[i].gameObject.GetComponent<StateMachine>().CurrentState is ParkState)
             {
-                k++;
+                if (!parked.Contains(planes[i].gameObject)) 
+                { 
+                    parked.Add(planes[i].gameObject);
+                    Debug.Log(parked.Count);
+                }
             }
         }
-        if(k == planes.Length)
+        if(parked.Count >= planes.Length)
         {
             command = "Take Off";
-            k = 0;
+            parked.Clear();
         }
     }
     public void ParkButton() 
@@ -32,13 +38,17 @@ public class UIController : MonoBehaviour
         {
             if (planes[i].gameObject.GetComponent<StateMachine>().CurrentState is IdleState)
             {
-                l++;
+                if (!airborne.Contains(planes[i].gameObject))
+                {
+                    airborne.Add(planes[i].gameObject);
+                }
+                
             }
         }
-        if (l == planes.Length)
+        if (airborne.Count >= planes.Length)
         {
             command = "Park";
-            l = 0;
+            airborne.Clear();
         }
     }
     public void LightsOnButton()
