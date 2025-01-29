@@ -18,8 +18,11 @@ public class UIController : MonoBehaviour
         {
             if(planes[i].gameObject.GetComponent<StateMachine>().CurrentState is ParkState)
             {
-                parked.Add(planes[i].gameObject);
-                Debug.Log(parked.Count);
+                if (!parked.Contains(planes[i].gameObject)) 
+                { 
+                    parked.Add(planes[i].gameObject);
+                    Debug.Log(parked.Count);
+                }
             }
         }
         if(parked.Count >= planes.Length)
@@ -35,7 +38,11 @@ public class UIController : MonoBehaviour
         {
             if (planes[i].gameObject.GetComponent<StateMachine>().CurrentState is IdleState)
             {
-                airborne.Add(planes[i].gameObject);
+                if (!airborne.Contains(planes[i].gameObject))
+                {
+                    airborne.Add(planes[i].gameObject);
+                }
+                
             }
         }
         if (airborne.Count >= planes.Length)
