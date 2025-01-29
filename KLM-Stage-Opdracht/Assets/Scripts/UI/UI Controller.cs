@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class UIController : MonoBehaviour
 {
+    public CameraManager cameraManager;
+
     // variables
     public string command;
     public GameObject[] planes;
@@ -21,7 +23,6 @@ public class UIController : MonoBehaviour
                 if (!parked.Contains(planes[i].gameObject)) 
                 { 
                     parked.Add(planes[i].gameObject);
-                    Debug.Log(parked.Count);
                 }
             }
         }
@@ -70,5 +71,10 @@ public class UIController : MonoBehaviour
                 command = "Lights Off";
             }
         }
+    }
+
+    public void NextCamera()
+    {
+        cameraManager.SwitchNextCamera();
     }
 }

@@ -11,7 +11,7 @@ public abstract class AbstractState : MonoBehaviour
     protected float maxSpeed = 5f;
     protected float maxForce = 0.7f;
     protected float distance;
-    protected float searchRadius = 4f;
+    protected float searchRadius = 3f;
     protected float dotProductVar = 0.4f;
     private float lowYLevel = 4f;
     protected Vector3 desiredVelocity;
@@ -98,7 +98,7 @@ public abstract class AbstractState : MonoBehaviour
         }
         if(plane.y < lowYLevel)
         {
-            desiredVelocity = Vector3.Normalize(new Vector3(plane.x,plane.y + lowYLevel, plane.z) - plane)* maxSpeed;
+            desiredVelocity = Vector3.Normalize(new Vector3(plane.x,plane.y + 10, plane.z) - plane)* maxSpeed;
             steering = desiredVelocity -rb.velocity;
             if (steering.magnitude > maxForce) 
             {
