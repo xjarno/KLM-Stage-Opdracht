@@ -38,6 +38,7 @@ public class IdleState : AbstractState
         }
 
         Seek(desiredTarget,transform.position);
+        Avoidance(transform.position);
 
     }
 }

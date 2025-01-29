@@ -18,6 +18,7 @@ public class AlignState : AbstractState
     {
         base.FixedUpdateState();
         Seek(seekTarget, transform.position);
+        Avoidance(transform.position);
         if(i == targets.Length-1 && distance <= radius)
         {
             Exit(exitStates[0]);
