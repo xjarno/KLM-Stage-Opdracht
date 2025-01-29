@@ -19,7 +19,7 @@ public class UIController : MonoBehaviour
                 k++;
             }
         }
-        if(k >= planes.Length)
+        if(k == planes.Length)
         {
             command = "Take Off";
             k = 0;
@@ -35,7 +35,7 @@ public class UIController : MonoBehaviour
                 l++;
             }
         }
-        if (l >= planes.Length)
+        if (l == planes.Length)
         {
             command = "Park";
             l = 0;
@@ -43,14 +43,22 @@ public class UIController : MonoBehaviour
     }
     public void LightsOnButton()
     {
-        command = "Lights On";
+        for(int i = 0;i < planes.Length; i++)
+        {
+            if(planes[i].gameObject.GetComponent<LightScript>().LightsOn == false)
+            {
+                command = "Lights On";
+            }
+        }
     }
     public void LightsOffButton()
     {
-        command = "Lights Off";
-    }
-    public void DisplayText() 
-    {
-        Debug.Log(command);
+        for (int i = 0; i < planes.Length; i++)
+        {
+            if (planes[i].gameObject.GetComponent<LightScript>().LightsOn == true)
+            {
+                command = "Lights Off";
+            }
+        }
     }
 }
