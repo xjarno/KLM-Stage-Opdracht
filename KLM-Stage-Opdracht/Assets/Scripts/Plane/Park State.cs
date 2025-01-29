@@ -3,6 +3,7 @@ using UnityEngine;
 public class ParkState : AbstractState
 {
     public GameObject Ui;
+    public GameObject lookAtTarget;
     private UIController UIController;
     public override void Enter()
     {
@@ -22,5 +23,6 @@ public class ParkState : AbstractState
     {
         base.FixedUpdateState();
         rb.velocity = Vector3.zero;
+        transform.LookAt(lookAtTarget.transform.position);
     }
 }

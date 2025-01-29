@@ -5,15 +5,41 @@ public class UIController : MonoBehaviour
 {
     // variables
     public string command;
+    public GameObject[] planes;
+    private int k;
+    private int l;
 
     //Functions
     public void TakeOffButton()
     {
-        command = "Take Off";
+        for (int i = 0; i < planes.Length; i++)
+        {
+            if(planes[i].gameObject.GetComponent<StateMachine>().CurrentState is ParkState)
+            {
+                k++;
+            }
+        }
+        if(k >= planes.Length)
+        {
+            command = "Take Off";
+            k = 0;
+        }
     }
     public void ParkButton() 
     {
-        command = "Park";
+       
+        for (int i = 0; i < planes.Length; i++)
+        {
+            if (planes[i].gameObject.GetComponent<StateMachine>().CurrentState is IdleState)
+            {
+                l++;
+            }
+        }
+        if (l >= planes.Length)
+        {
+            command = "Park";
+            l = 0;
+        }
     }
     public void LightsOnButton()
     {

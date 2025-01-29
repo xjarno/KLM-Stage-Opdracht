@@ -15,6 +15,8 @@ public class IdleState : AbstractState
     {
         UIController = UI.GetComponent<UIController>();
         GetVariables();
+        radius = 5;
+        desiredTarget = Vector3.zero;
     }
 
     public override void UpdateState()
@@ -30,7 +32,7 @@ public class IdleState : AbstractState
     {
         base.FixedUpdateState();
 
-        if(desiredTarget == null || distance <= radius)
+        if(desiredTarget == null || distance <= radius || desiredTarget == Vector3.zero)
         {
             desiredTarget = new Vector3(Random.Range(minCoordinate, maxCoordinate),Random.Range(minYLevel ,maxYLevel), Random.Range(minCoordinate, maxCoordinate));
         }
