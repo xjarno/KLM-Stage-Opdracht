@@ -8,7 +8,7 @@ public class IdleState : AbstractState
     private float minCoordinatex = -50;
     private float maxCoordinatez = 100;
     private float minCoordinatez = 0;
-    private float minYLevel = 6;
+    private float minYLevel = 10;
     private float maxYLevel = 15;
     private Vector3 desiredTarget;
 

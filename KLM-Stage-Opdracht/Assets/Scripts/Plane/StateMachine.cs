@@ -35,6 +35,5 @@ public class StateMachine : MonoBehaviour
     {
         currentState = state;
         currentState.Enter();
-        Debug.Log(currentState);
     }
 }
